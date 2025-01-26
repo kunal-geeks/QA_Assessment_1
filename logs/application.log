@@ -1,0 +1,148 @@
+2025-01-26 21:47:08 - Test setup completed. Report path set.
+2025-01-26 21:47:08 - Initializing WebDriver for browser: chrome
+2025-01-26 21:47:08 - Using chromedriver 132.0.6834.110 (resolved driver for Chrome 132)
+2025-01-26 21:47:08 - Exporting webdriver.chrome.driver as /Users/sandeepsharma/.cache/selenium/chromedriver/mac-arm64/132.0.6834.110/chromedriver
+2025-01-26 21:47:09 - ChromeDriver initialized successfully
+2025-01-26 21:47:09 - WebDriver window maximized
+2025-01-26 21:47:09 - Test started. WebDriver initialized for browser: chrome
+2025-01-26 21:47:09 - Starting ERAIL dropdown and date selection test.
+2025-01-26 21:49:31 - Opened ERAIL website: https://erail.in/
+2025-01-26 21:49:31 - Waiting for page to load with a timeout of 10 seconds
+2025-01-26 21:49:31 - Page loaded successfully
+2025-01-26 21:49:31 - Page fully loaded.
+2025-01-26 21:49:31 - ErailPage initialized.
+2025-01-26 21:49:31 - Initialized ErailPage object.
+2025-01-26 21:49:31 - Entering station code: DEL
+2025-01-26 21:49:31 - Element is visible: [[ChromeDriver: chrome on mac (01a0bc1d441d8dce3b5988f51225139b)] -> id: txtStationFrom]
+2025-01-26 21:49:31 - Element is visible: [[ChromeDriver: chrome on mac (01a0bc1d441d8dce3b5988f51225139b)] -> id: txtStationFrom]
+2025-01-26 21:49:31 - Entered 'DEL' in 'From' field.
+2025-01-26 21:49:31 - Selecting the station at the 4 position in the dropdown.
+2025-01-26 21:49:31 - Selecting dropdown option at index: 3
+2025-01-26 21:49:31 - Element is visible: [[ChromeDriver: chrome on mac (01a0bc1d441d8dce3b5988f51225139b)] -> xpath: //div[@class='autocomplete']/div]
+2025-01-26 21:49:31 - Successfully selected station: Delhi Azadpur
+2025-01-26 21:49:31 - Selected the 4th station from the dropdown.
+2025-01-26 21:49:31 - Writing dropdown data to Excel file: /Users/sandeepsharma/eclipse-workspace/selenium-java-assignment/src/test/resources/DropdownData.xlsx
+2025-01-26 21:49:32 - Dropdown data written to: /Users/sandeepsharma/eclipse-workspace/selenium-java-assignment/src/test/resources/DropdownData.xlsx
+2025-01-26 21:49:32 - Dropdown data successfully written to Excel file: /Users/sandeepsharma/eclipse-workspace/selenium-java-assignment/src/test/resources/DropdownData.xlsx
+2025-01-26 21:49:32 - Dropdown options written to Excel file: /Users/sandeepsharma/eclipse-workspace/selenium-java-assignment/src/test/resources/DropdownData.xlsx
+2025-01-26 21:49:32 - Checking if station 'New Delhi' is present in Excel file: /Users/sandeepsharma/eclipse-workspace/selenium-java-assignment/src/test/resources/DropdownData.xlsx
+2025-01-26 21:49:32 - Station 'New Delhi' not found in Excel file: /Users/sandeepsharma/eclipse-workspace/selenium-java-assignment/src/test/resources/DropdownData.xlsx
+2025-01-26 21:49:32 - Station 'New Delhi' presence in Excel file: false
+2025-01-26 21:49:32 - Verified the presence of station: New Delhi
+2025-01-26 21:49:32 - Selecting a date 30 days from today.
+2025-01-26 21:49:32 - Element is visible: [[ChromeDriver: chrome on mac (01a0bc1d441d8dce3b5988f51225139b)] -> xpath: //input[@title='Select Departure date for availability']]
+2025-01-26 21:49:32 - Element is visible: [[ChromeDriver: chrome on mac (01a0bc1d441d8dce3b5988f51225139b)] -> xpath: //table[@class='Month']]
+2025-01-26 21:49:32 - Selecting date from calendar (Month: Feb-25, Day: 25).
+2025-01-26 21:49:32 - Selected Day is 25
+2025-01-26 21:49:32 - Selected date: 25 Feb-25
+2025-01-26 21:49:32 - Selected journey date 30 days from today.
+2025-01-26 21:49:32 - Verified the selected journey date: 25-Feb-25 Tue
+2025-01-26 21:49:32 - Erail dropdown and date selection test completed successfully.
+2025-01-26 21:49:32 - Quitting WebDriver
+2025-01-26 21:49:33 - WebDriver quit successfully
+2025-01-26 21:49:33 - Test completed. WebDriver closed.
+2025-01-26 21:49:33 - Test setup completed. Report path set.
+2025-01-26 21:49:33 - Login data read successfully from: loginData.xlsx
+2025-01-26 21:49:33 - Initializing WebDriver for browser: chrome
+2025-01-26 21:49:33 - Using chromedriver 132.0.6834.110 (resolved driver for Chrome 132)
+2025-01-26 21:49:33 - Exporting webdriver.chrome.driver as /Users/sandeepsharma/.cache/selenium/chromedriver/mac-arm64/132.0.6834.110/chromedriver
+2025-01-26 21:49:34 - ChromeDriver initialized successfully
+2025-01-26 21:49:34 - WebDriver window maximized
+2025-01-26 21:49:34 - Test started. WebDriver initialized for browser: chrome
+2025-01-26 21:49:34 - Starting login test for username: Admin
+2025-01-26 21:50:13 - Opened OrangeHRM login page: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+2025-01-26 21:50:13 - Waiting for page to load with a timeout of 10 seconds
+2025-01-26 21:50:13 - Page loaded successfully
+2025-01-26 21:50:13 - Page fully loaded.
+2025-01-26 21:50:13 - Initialized OrangeHRMLoginPage.
+2025-01-26 21:50:13 - Initialized OrangeHRMLoginPage object.
+2025-01-26 21:50:13 - Attempting to log in with username: Admin and password: admin123
+2025-01-26 21:50:22 - Element is visible: [[ChromeDriver: chrome on mac (fc2ed1dc6118bbac94168410e8547419)] -> xpath: //input[@name='username']]
+2025-01-26 21:50:22 - Element is visible: [[ChromeDriver: chrome on mac (fc2ed1dc6118bbac94168410e8547419)] -> xpath: //input[@name='password']]
+2025-01-26 21:50:22 - Element is visible: [[ChromeDriver: chrome on mac (fc2ed1dc6118bbac94168410e8547419)] -> xpath: //button[@type='submit']]
+2025-01-26 21:50:23 - Clicked login button.
+2025-01-26 21:50:23 - Attempted login with username: Admin and password: admin123
+2025-01-26 21:50:24 - Element is visible: [[ChromeDriver: chrome on mac (fc2ed1dc6118bbac94168410e8547419)] -> xpath: //h6[text()='Dashboard']]
+2025-01-26 21:50:24 - Dashboard is visible.
+2025-01-26 21:50:24 - Login successful for username: Admin
+2025-01-26 21:50:24 - Quitting WebDriver
+2025-01-26 21:50:24 - WebDriver quit successfully
+2025-01-26 21:50:24 - Test completed. WebDriver closed.
+2025-01-26 21:50:24 - Initializing WebDriver for browser: chrome
+2025-01-26 21:50:24 - Using chromedriver 132.0.6834.110 (resolved driver for Chrome 132)
+2025-01-26 21:50:24 - Exporting webdriver.chrome.driver as /Users/sandeepsharma/.cache/selenium/chromedriver/mac-arm64/132.0.6834.110/chromedriver
+2025-01-26 21:50:24 - ChromeDriver initialized successfully
+2025-01-26 21:50:24 - WebDriver window maximized
+2025-01-26 21:50:24 - Test started. WebDriver initialized for browser: chrome
+2025-01-26 21:50:24 - Starting login test for username: 
+2025-01-26 21:50:34 - Opened OrangeHRM login page: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+2025-01-26 21:50:34 - Waiting for page to load with a timeout of 10 seconds
+2025-01-26 21:50:34 - Page loaded successfully
+2025-01-26 21:50:34 - Page fully loaded.
+2025-01-26 21:50:34 - Initialized OrangeHRMLoginPage.
+2025-01-26 21:50:34 - Initialized OrangeHRMLoginPage object.
+2025-01-26 21:50:34 - Attempting to log in with username:  and password: admin123
+2025-01-26 21:50:37 - Element is visible: [[ChromeDriver: chrome on mac (adf97ab490e9de3a9335383dda74a808)] -> xpath: //input[@name='username']]
+2025-01-26 21:50:37 - Element is visible: [[ChromeDriver: chrome on mac (adf97ab490e9de3a9335383dda74a808)] -> xpath: //input[@name='password']]
+2025-01-26 21:50:37 - Element is visible: [[ChromeDriver: chrome on mac (adf97ab490e9de3a9335383dda74a808)] -> xpath: //button[@type='submit']]
+2025-01-26 21:50:37 - Clicked login button.
+2025-01-26 21:50:37 - Attempted login with username:  and password: admin123
+2025-01-26 21:50:37 - Element is visible: [[ChromeDriver: chrome on mac (adf97ab490e9de3a9335383dda74a808)] -> xpath: //span[contains(@class,'oxd-input-field-error-message')]]
+2025-01-26 21:50:37 - Retrieved required field message: Required
+2025-01-26 21:50:37 - Login failed due to empty fields. Required message displayed.
+2025-01-26 21:50:37 - Quitting WebDriver
+2025-01-26 21:50:37 - WebDriver quit successfully
+2025-01-26 21:50:37 - Test completed. WebDriver closed.
+2025-01-26 21:50:37 - Initializing WebDriver for browser: chrome
+2025-01-26 21:50:37 - Using chromedriver 132.0.6834.110 (resolved driver for Chrome 132)
+2025-01-26 21:50:37 - Exporting webdriver.chrome.driver as /Users/sandeepsharma/.cache/selenium/chromedriver/mac-arm64/132.0.6834.110/chromedriver
+2025-01-26 21:50:38 - ChromeDriver initialized successfully
+2025-01-26 21:50:38 - WebDriver window maximized
+2025-01-26 21:50:38 - Test started. WebDriver initialized for browser: chrome
+2025-01-26 21:50:38 - Starting login test for username: Admin
+2025-01-26 21:51:10 - Opened OrangeHRM login page: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+2025-01-26 21:51:10 - Waiting for page to load with a timeout of 10 seconds
+2025-01-26 21:51:10 - Page loaded successfully
+2025-01-26 21:51:10 - Page fully loaded.
+2025-01-26 21:51:10 - Initialized OrangeHRMLoginPage.
+2025-01-26 21:51:10 - Initialized OrangeHRMLoginPage object.
+2025-01-26 21:51:10 - Attempting to log in with username: Admin and password: 
+2025-01-26 21:51:19 - Element is visible: [[ChromeDriver: chrome on mac (5f0da2b93c95c33daae8f3bf818bc080)] -> xpath: //input[@name='username']]
+2025-01-26 21:51:19 - Element is visible: [[ChromeDriver: chrome on mac (5f0da2b93c95c33daae8f3bf818bc080)] -> xpath: //input[@name='password']]
+2025-01-26 21:51:19 - Element is visible: [[ChromeDriver: chrome on mac (5f0da2b93c95c33daae8f3bf818bc080)] -> xpath: //button[@type='submit']]
+2025-01-26 21:51:19 - Clicked login button.
+2025-01-26 21:51:19 - Attempted login with username: Admin and password: 
+2025-01-26 21:51:19 - Element is visible: [[ChromeDriver: chrome on mac (5f0da2b93c95c33daae8f3bf818bc080)] -> xpath: //span[contains(@class,'oxd-input-field-error-message')]]
+2025-01-26 21:51:19 - Retrieved required field message: Required
+2025-01-26 21:51:19 - Login failed due to empty fields. Required message displayed.
+2025-01-26 21:51:19 - Quitting WebDriver
+2025-01-26 21:51:19 - WebDriver quit successfully
+2025-01-26 21:51:19 - Test completed. WebDriver closed.
+2025-01-26 21:51:19 - Initializing WebDriver for browser: chrome
+2025-01-26 21:51:19 - Using chromedriver 132.0.6834.110 (resolved driver for Chrome 132)
+2025-01-26 21:51:19 - Exporting webdriver.chrome.driver as /Users/sandeepsharma/.cache/selenium/chromedriver/mac-arm64/132.0.6834.110/chromedriver
+2025-01-26 21:51:20 - ChromeDriver initialized successfully
+2025-01-26 21:51:20 - WebDriver window maximized
+2025-01-26 21:51:20 - Test started. WebDriver initialized for browser: chrome
+2025-01-26 21:51:20 - Starting login test for username: testUser
+2025-01-26 21:51:27 - Opened OrangeHRM login page: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+2025-01-26 21:51:27 - Waiting for page to load with a timeout of 10 seconds
+2025-01-26 21:51:27 - Page loaded successfully
+2025-01-26 21:51:27 - Page fully loaded.
+2025-01-26 21:51:27 - Initialized OrangeHRMLoginPage.
+2025-01-26 21:51:27 - Initialized OrangeHRMLoginPage object.
+2025-01-26 21:51:27 - Attempting to log in with username: testUser and password: testPass
+2025-01-26 21:51:32 - Element is visible: [[ChromeDriver: chrome on mac (6641c909530b687bfa347f2615a66e88)] -> xpath: //input[@name='username']]
+2025-01-26 21:51:32 - Element is visible: [[ChromeDriver: chrome on mac (6641c909530b687bfa347f2615a66e88)] -> xpath: //input[@name='password']]
+2025-01-26 21:51:32 - Element is visible: [[ChromeDriver: chrome on mac (6641c909530b687bfa347f2615a66e88)] -> xpath: //button[@type='submit']]
+2025-01-26 21:51:34 - Clicked login button.
+2025-01-26 21:51:34 - Attempted login with username: testUser and password: testPass
+2025-01-26 21:51:44 - Error waiting for element visibility: Proxy element for: DefaultElementLocator 'By.xpath: //h6[text()='Dashboard']'
+2025-01-26 21:51:44 - Error checking dashboard visibility
+2025-01-26 21:51:44 - Element is visible: [[ChromeDriver: chrome on mac (6641c909530b687bfa347f2615a66e88)] -> xpath: //p[contains(@class,'oxd-alert-content-text')]]
+2025-01-26 21:51:44 - Retrieved error message: Invalid credentials
+2025-01-26 21:51:44 - Login failed for username: testUser. Error message: Invalid credentials
+2025-01-26 21:51:44 - Quitting WebDriver
+2025-01-26 21:51:44 - WebDriver quit successfully
+2025-01-26 21:51:44 - Test completed. WebDriver closed.
+2025-01-26 21:51:44 - Test execution completed. Access the report at: /Users/sandeepsharma/eclipse-workspace/selenium-java-assignment/test-output/SparkReport.html
