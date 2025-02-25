@@ -15,8 +15,8 @@ public class ExtentTestListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        ExtentTest test = BaseTest.test.get();
-        test.log(Status.PASS, "Test passed: " + result.getMethod().getMethodName());
+         // ExtentTest test = BaseTest.test.get();
+        // test.log(Status.PASS, "Test passed: " + result.getMethod().getMethodName());
     }
 
     @Override
@@ -29,6 +29,21 @@ public class ExtentTestListener implements ITestListener {
     public void onTestSkipped(ITestResult result) {
         ExtentTest test = BaseTest.test.get();
         test.log(Status.SKIP, "Test skipped: " + result.getMethod().getMethodName());
+    }
+
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        // Handle failure with success percentage if needed
+    }
+
+    @Override
+    public void onStart(ITestContext context) {
+        // Initialization before the suite starts
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+        // Finalization after the suite finishes
     }
 }
 
