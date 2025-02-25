@@ -12,7 +12,7 @@ This project automates functional testing for two use cases using Selenium, Java
 
 ## Use Cases
 
-### Use Case 1: Erail Website
+### Use Case 1: Erail Website(https://erail.in/)
 1. Automates station selection and dropdown data extraction.
 2. Compares dropdown data with expected values in an Excel file.
 3. Selects a date dynamically (30 days from today).
