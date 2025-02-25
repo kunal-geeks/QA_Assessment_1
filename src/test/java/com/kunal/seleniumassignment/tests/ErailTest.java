@@ -26,18 +26,18 @@ public class ErailTest extends BaseTest {
 	 */
 	@Test(description = "Validates dropdown functionality and date selection on the ERAIL website")
 	public void testErailDropdownAndDateSelection() throws IOException {
-		test = extent.createTest("Erail Dropdown and Date Selection Test");
+		test.get().info("Running the Erail Dropdown and Date Selection Test");
 
 		logger.info("Starting ERAIL dropdown and date selection test.");
 
 		// Step 1: Navigate to the ERAIL website
 		driver.get(ERAIL_URL);
-		test.info("Opened ERAIL website: " + ERAIL_URL);
+		test.get().info("Opened ERAIL website: " + ERAIL_URL);
 		logger.info("Opened ERAIL website: " + ERAIL_URL);
 
 		// Step 2: Wait for the page to fully load
 		PageLoadUtil.waitForPageToLoad(driver, 10);
-		test.info("Page fully loaded");
+		test.get().info("Page fully loaded");
 		logger.info("Page fully loaded.");
 
 		// Step 3: Initialize the page object
@@ -51,7 +51,7 @@ public class ErailTest extends BaseTest {
 		selectAndVerifyDate(erailPage);
 
 		// Test completion
-		test.pass("Erail dropdown and date selection test completed successfully.");
+		test.get().pass("Erail dropdown and date selection test completed successfully.");
 		logger.info("Erail dropdown and date selection test completed successfully.");
 	}
 
@@ -65,23 +65,23 @@ public class ErailTest extends BaseTest {
 	private void interactWithDropdown(ErailPage erailPage) throws IOException {
 		// Enter 'DEL' in the 'From' field
 		erailPage.enterFromStation("DEL");
-		test.info("Entered 'DEL' in 'From' field");
+		test.get().info("Entered 'DEL' in 'From' field");
 		logger.info("Entered 'DEL' in 'From' field.");
 
 		// Select the 4th station from the dropdown
 		erailPage.selectStationAtSpecificPosition(POSITION);
 		;
-		test.pass("Selected the 4th station from the dropdown");
+		test.get().pass("Selected the 4th station from the dropdown");
 		logger.info("Selected the 4th station from the dropdown.");
 
 		// Write dropdown options to Excel
 		erailPage.writeDropdownDataToExcel(DROPDOWN_EXCEL_FILE_PATH);
-		test.pass("Dropdown options written to Excel file: " + DROPDOWN_EXCEL_FILE_PATH);
+		test.get().pass("Dropdown options written to Excel file: " + DROPDOWN_EXCEL_FILE_PATH);
 		logger.info("Dropdown options written to Excel file: " + DROPDOWN_EXCEL_FILE_PATH);
 
 		// Verify if the expected station is present in the Excel file
 		erailPage.isStationPresentInExcel(EXPECTED_STATION, DROPDOWN_EXCEL_FILE_PATH);
-		test.pass("Verified the presence of station: " + EXPECTED_STATION);
+		test.get().pass("Verified the presence of station: " + EXPECTED_STATION);
 		logger.info("Verified the presence of station: " + EXPECTED_STATION);
 	}
 
@@ -94,14 +94,14 @@ public class ErailTest extends BaseTest {
 		try {
 			// Select the journey date
 			erailPage.selectDate(DAYS_FROM_TODAY);
-			test.pass("Selected journey date " + DAYS_FROM_TODAY + " days from today");
+			test.get().pass("Selected journey date " + DAYS_FROM_TODAY + " days from today");
 			logger.info("Selected journey date " + DAYS_FROM_TODAY + " days from today.");
 
 			// Verify the selected date
 			String selectedDate = erailPage.getSelectedDate();
 			String expectedDate = erailPage.getExpectedDate(DAYS_FROM_TODAY);
 			Assert.assertEquals(selectedDate, expectedDate, "Date selection failed!");
-			test.pass("Verified the selected journey date: " + selectedDate);
+			test.get().pass("Verified the selected journey date: " + selectedDate);
 			logger.info("Verified the selected journey date: " + selectedDate);
 		} catch (Exception e) {
 			logger.error("Error during date selection and verification: ", e);
