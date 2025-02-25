@@ -4,7 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.kunal.seleniumassignment.utils.ExtentManagerUtil;
-import com.kunal.seleniumassignment.utils.ExtentTestListener;
+import com.kunal.seleniumassignment.tests.ExtentTestListener;
 import com.kunal.seleniumassignment.utils.WebDriverManagerUtil;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
