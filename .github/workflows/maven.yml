@@ -37,7 +37,7 @@ jobs:
       run: mvn clean test
 
     - name: Upload Extent Reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: extent-reports
         path: test-output/SparkReport.html
