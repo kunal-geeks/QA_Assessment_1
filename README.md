@@ -17,7 +17,7 @@ This project automates functional testing for two use cases using Selenium, Java
 2. Compares dropdown data with expected values in an Excel file.
 3. Selects a date dynamically (30 days from today).
 
-### Use Case 2: OrangeHRM Login
+### Use Case 2: OrangeHRM Login(https://opensource-demo.orangehrmlive.com/web/index.php/auth/login)
 1. Tests valid and invalid login scenarios using data-driven testing.
 2. Generates Extent Reports for results.
 
