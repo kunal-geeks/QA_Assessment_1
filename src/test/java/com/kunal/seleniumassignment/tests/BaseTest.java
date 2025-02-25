@@ -57,8 +57,7 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({ "browser", "headless" })
     public void beforeTest(@Optional("chrome") String browser, @Optional("true") String headless) {
-        boolean isHeadless = Boolean.parseBoolean(headless);
-        driver = WebDriverManagerUtil.getDriver(browser, isHeadless);
+        driver = WebDriverManagerUtil.getDriver(browser, headless);
         logger.info("Test started on browser: " + browser + " | Headless: " + isHeadless);
 
         // Initialize ExtentTest instance for each test method
