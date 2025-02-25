@@ -64,7 +64,6 @@ public class BaseTest {
         
         ExtentTest extentTest = extent.createTest(this.getClass().getSimpleName());
         BaseTest.test.set(extentTest);
-        test.get().log(Status.INFO, "Test started: " + extentTest);
     }
 
     /**
