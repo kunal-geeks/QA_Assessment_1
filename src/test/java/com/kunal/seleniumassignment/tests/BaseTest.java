@@ -61,10 +61,8 @@ public class BaseTest {
         // Initialize WebDriver using the utility method
         driver = WebDriverManagerUtil.getDriver(browser, headless);
         logger.info("Test started on browser: " + browser + " | Headless: " + headless);
-
-        // Initialize ExtentTest instance for each test method with method name as the test name
-        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        ExtentTest extentTest = extent.createTest(methodName);
+        
+        ExtentTest extentTest = extent.createTest(this.getClass().getSimpleName());
         BaseTest.test.set(extentTest);
         test.get().log(Status.INFO, "Test started: " + methodName);
     }
