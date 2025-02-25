@@ -9,7 +9,7 @@ public class ExtentTestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentTest test = BaseTest.test.get(); // Access the thread-local ExtentTest instance
+        ExtentTest test = BaseTest.test.get(); // Access thread-local instance
         test.log(Status.INFO, "Test started: " + result.getMethod().getMethodName());
     }
 
@@ -22,7 +22,7 @@ public class ExtentTestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ExtentTest test = BaseTest.test.get();
-        test.fail(result.getThrowable());
+        test.fail(result.getThrowable()); // Pass throwable for failure reason
     }
 
     @Override
