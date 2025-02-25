@@ -65,7 +65,7 @@ public class BaseTest {
         // Initialize ExtentTest instance for each test method with method name as the test name
         String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
         ExtentTest extentTest = extent.createTest(methodName);
-        test.set(extentTest);
+        BaseTest.test.set(extentTest);
         test.get().log(Status.INFO, "Test started: " + methodName);
     }
 
