@@ -4,12 +4,13 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.kunal.seleniumassignment.utils.ExtentManagerUtil;
-import com.kunal.seleniumassignment.tests.ExtentTestListener;
 import com.kunal.seleniumassignment.utils.WebDriverManagerUtil;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.*;
+import org.testng.annotations.Listeners;
+
 import java.io.File;
 
 /**
@@ -57,13 +58,15 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({ "browser", "headless" })
     public void beforeTest(@Optional("chrome") String browser, @Optional("true") String headless) {
+        // Initialize WebDriver using the utility method
         driver = WebDriverManagerUtil.getDriver(browser, headless);
         logger.info("Test started on browser: " + browser + " | Headless: " + headless);
 
-        // Initialize ExtentTest instance for each test method
-        ExtentTest extentTest = extent.createTest(this.getClass().getSimpleName());
+        // Initialize ExtentTest instance for each test method with method name as the test name
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        ExtentTest extentTest = extent.createTest(methodName);
         test.set(extentTest);
-        test.get().log(Status.INFO, "Test started: " + this.getClass().getSimpleName());
+        test.get().log(Status.INFO, "Test started: " + methodName);
     }
 
     /**
@@ -77,7 +80,7 @@ public class BaseTest {
         }
         if (test.get() != null) {
             test.get().log(Status.INFO, "Test execution finished.");
-            test.remove();
+            test.remove();  // Remove the ThreadLocal to prevent memory leaks
         }
     }
 
@@ -88,7 +91,7 @@ public class BaseTest {
     public void tearDown() {
         if (extent != null) {
             ExtentManagerUtil.flushExtentReports(extent);
-            logger.info("Test execution completed. Access the report at: " + System.getProperty("user.dir") 
+            logger.info("Test execution completed. Access the report at: " + System.getProperty("user.dir")
                 + File.separator + "test-output" + File.separator + "SparkReport.html");
         }
     }
