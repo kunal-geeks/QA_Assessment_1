@@ -2,17 +2,12 @@ package com.kunal.seleniumassignment.tests;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.kunal.seleniumassignment.utils.ExtentManagerUtil;
 import com.kunal.seleniumassignment.utils.ExtentTestListener;
 import com.kunal.seleniumassignment.utils.WebDriverManagerUtil;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.File;
@@ -26,14 +21,14 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected static ExtentReports extent;
-    public static ExtentTest test;
+    protected static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     protected Logger logger;
 
     /**
      * Constructor initializes the logger for the child class.
      */
     public BaseTest() {
-        this.logger = LoggerFactory.getLogger(this.getClass()); // Initialize logger for the child class
+        this.logger = LoggerFactory.getLogger(this.getClass());
     }
 
     /**
@@ -44,33 +39,32 @@ public class BaseTest {
     @BeforeClass
     @Parameters({ "browser" })
     public void setup(@Optional("chrome") String browser) {
-        // Define the report file path
-        String reportPath = System.getProperty("user.dir") + File.separator + "test-output" + File.separator
-                + "SparkReport.html";
-
-        // Initialize ExtentReports using ExtentManagerUtil (shared across all tests)
-        if (extent == null) {
-            extent = ExtentManagerUtil.initializeExtentReports(reportPath, browser);
+        synchronized (BaseTest.class) {
+            if (extent == null) {
+                String reportPath = System.getProperty("user.dir") + File.separator + "test-output" + File.separator + "SparkReport.html";
+                extent = ExtentManagerUtil.initializeExtentReports(reportPath, browser);
+                logger.info("ExtentReports initialized. Report path: " + reportPath);
+            }
         }
-
-        // Log setup completion
-        logger.info("Test setup completed. Report path set.");
     }
 
     /**
      * BeforeMethod setup that runs before each test, initializing WebDriver.
      *
-     * @param browser the browser to be used for testing
-     * @param headless whether the browser should run in headless mode
+     * @param browser  the browser to be used for testing
+     * @param headless whether the browser should run in headless mode (default: true)
      */
     @BeforeMethod
     @Parameters({ "browser", "headless" })
-    public void beforeTest(@Optional("chrome") String browser, @Optional("false") String headless) {
-        // Use WebDriverManagerUtil to initialize WebDriver before each test
-        driver = WebDriverManagerUtil.getDriver(browser, headless);
+    public void beforeTest(@Optional("chrome") String browser, @Optional("true") String headless) {
+        boolean isHeadless = Boolean.parseBoolean(headless);
+        driver = WebDriverManagerUtil.getDriver(browser, isHeadless);
+        logger.info("Test started on browser: " + browser + " | Headless: " + isHeadless);
 
-        // Log test initialization
-        logger.info("Test started. WebDriver initialized for browser: " + browser);
+        // Initialize ExtentTest instance for each test method
+        ExtentTest extentTest = extent.createTest(this.getClass().getSimpleName());
+        test.set(extentTest);
+        test.get().log(Status.INFO, "Test started: " + this.getClass().getSimpleName());
     }
 
     /**
@@ -78,11 +72,14 @@ public class BaseTest {
      */
     @AfterMethod
     public void afterTest() {
-        // Close the WebDriver after each test
-        WebDriverManagerUtil.quitDriver();
-
-        // Log test completion
-        logger.info("Test completed. WebDriver closed.");
+        if (driver != null) {
+            WebDriverManagerUtil.quitDriver();
+            logger.info("Test completed. WebDriver closed.");
+        }
+        if (test.get() != null) {
+            test.get().log(Status.INFO, "Test execution finished.");
+            test.remove();
+        }
     }
 
     /**
@@ -90,11 +87,10 @@ public class BaseTest {
      */
     @AfterSuite
     public void tearDown() {
-        // Flush the ExtentReports using ExtentManagerUtil
-        ExtentManagerUtil.flushExtentReports(extent);
-
-        // Provide a message to access the report
-        logger.info("Test execution completed. Access the report at: " + System.getProperty("user.dir") + File.separator
-                + "test-output" + File.separator + "SparkReport.html");
+        if (extent != null) {
+            ExtentManagerUtil.flushExtentReports(extent);
+            logger.info("Test execution completed. Access the report at: " + System.getProperty("user.dir") 
+                + File.separator + "test-output" + File.separator + "SparkReport.html");
+        }
     }
 }
